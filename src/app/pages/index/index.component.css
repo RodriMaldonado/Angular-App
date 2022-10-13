@@ -1,7 +1,13 @@
 /* BASIC */
+
+ body{
+  background: linear-gradient(10deg, rgba(0, 0, 0, 0.55) 0%, #fff 95%);
+  height: 100vh;
+  width: 100vw;
+}
+
 .loginBody {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
   }
   
   

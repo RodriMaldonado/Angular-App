@@ -1,3 +1,6 @@
+<body>
+  
+
 <div class="loginBody">
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -5,7 +8,7 @@
   
       <!-- Icon -->
       <div class="fadeIn first">
-        <img src="../../../assets/img/logo.png" id="icon" alt="User Icon" />
+        <a routerLink="/index"><img src="../../../assets/img/logo.png" id="icon" alt="User Icon"/> </a>
       </div>
 
       <div>
@@ -16,7 +19,7 @@
       <form>
         <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
         <input type="text" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-        <input type="submit" class="fadeIn fourth" value="Login">
+        <a routerLink="/layout1"><input type="submit" class="fadeIn fourth" value="Login" routerLink="/layout1"></a>
       </form>
 
       <div>
@@ -27,3 +30,4 @@
   
     </div>
 </div>
+</body>
