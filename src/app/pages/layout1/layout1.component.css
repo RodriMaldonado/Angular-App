@@ -28,6 +28,10 @@
   width: 40%;
 }
 
+.btn {
+  white-space: normal !important;
+}
+
 #gestion {
   font-weight: bold;
 }
