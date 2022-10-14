@@ -5,6 +5,10 @@
 
 
 /* Boton OFF navbar*/
+#off {
+  margin-right:px ;
+}
+
 .btn-circle {
     width: 35px;
     height: 35px;
@@ -54,3 +58,5 @@
     display: inline-block;
   }
   }
+
+
