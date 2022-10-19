@@ -18,12 +18,12 @@
       </div>
   
       <!-- Login Form -->
-      <form>
-        <div class="container">
+      <form method="post">
+        <div class="container" >
           <div class="col">
-        <input type="email" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-        <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-        <input routerLink="/layout1" type="submit" class="fadeIn fourth" value="Login" >
+        <input type="email" [(ngModel)]="email" class="fadeIn second" name="email" placeholder="Ingrese su email" required="required">
+        <input type="password" [(ngModel)]="password" class="fadeIn third" name="password" placeholder="Contraseña" required="required">
+        <button type="submit" class="fadeIn fourth" (click)="login()" >Iniciar sesion</button>
           </div>
         </div>
       </form>
