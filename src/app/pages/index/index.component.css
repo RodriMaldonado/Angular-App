@@ -64,7 +64,7 @@
   
   /* FORM TYPOGRAPHY*/
   
-  input[type=button], input[type=submit], input[type=reset]  {
+   button {
     background-color: #f0763d;
     border:none;
     color: white;
