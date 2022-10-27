@@ -7,8 +7,8 @@ import { UsersService } from 'src/app/users/user.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent {
-  email:string;
-  password:string;
+  email!:string;
+  password!:string;
 
   constructor(public userService: UsersService) { 
     
