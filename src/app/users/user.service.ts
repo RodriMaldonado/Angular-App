@@ -9,6 +9,8 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   login(user: any): Observable<any> {
-    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php", user);
+    return this.http.post("https://reqres.in/api/login", user);
   }
 }
+
+/* eve.holt@reqres.in mail api */
