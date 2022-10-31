@@ -21,7 +21,7 @@ export class IndexComponent {
         //preguntar si tenemos el token para avanzar a dejar en una cookie de lo contrario mostrar mensaje de error en el usurio
         this.userService.setToken(data.token);
         //validamos el usuario si trea el nivel que devuelve la api
-        if (data.nivel==2 || data.nivel==9 ){
+        if (data.nivel==2 || data.nivel==3 ){
           this.router.navigateByUrl('layout1');
         }else {
           //
