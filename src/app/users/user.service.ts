@@ -13,24 +13,25 @@ export class UsersService {
   //funciona con  la pagina de ejemplo
   //return this.http.post("https://reqres.in/api/login", user);
   
-  return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/index.php",user);
+  return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/login.php",user);
 
   //funciona con el get
   //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
   }
 
-//
+  //guarda el token en la cookie del cliente
   setToken(token: string) {
     this.cookies.set("token", token);
   }
-
+  //devuelve la cookie almacenada en el cliente
   getToken() {
     return this.cookies.get("token");
   }
 
+  //devueleve el usuario
   getUser() {
     //return this.http.get("https://reqres.in/api/users/2");
-    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
+    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/login.php");
   }
 //busqueda de usaurio loggeado
   getUserLogged() {
