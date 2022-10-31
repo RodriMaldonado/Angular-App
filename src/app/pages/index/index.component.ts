@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users/user.service';
+<<<<<<< HEAD
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/model/login';
+=======
+import { Router } from '@angular/router';
+>>>>>>> nelson_api
 
 @Component({
   selector: 'app-index',
@@ -11,6 +15,7 @@ import { Login } from 'src/app/model/login';
 })
 export class IndexComponent implements OnInit{
 
+<<<<<<< HEAD
   form:FormGroup;
   
 
@@ -54,6 +59,21 @@ export class IndexComponent implements OnInit{
 
   
 
+=======
+  constructor(public userService: UsersService,public router: Router) { 
+    
+  }
+
+  login()  {
+    const user = {email: this.email, password: this.password};
+    this.userService.login(user).subscribe(data => {
+        //preguntar si tenemos el token para avanzar a dejar en una cookie de lo contrario mostrar mensaje de error en el usurio
+        this.userService.setToken(data.token);
+        });
+    
+    this.router.navigateByUrl('layout1');
+    
+>>>>>>> nelson_api
 }
 }
 }
