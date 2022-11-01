@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class IndexComponent {
   email!:string;
   password!:string;
-
+  errorlogin:string;
   constructor(public userService: UsersService,public router: Router) { 
     
   }
@@ -25,7 +25,7 @@ export class IndexComponent {
           this.router.navigateByUrl('layout1');
         }else {
           //mostrar por pantalla el mensaje de error
-          console.log("usuario o pass no valido");
+          this.errorlogin="Usuario o contraseña no válido";
         }
           
         });

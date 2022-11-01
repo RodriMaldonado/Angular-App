@@ -12,8 +12,10 @@ export class Layout1Component implements OnInit {
 
   constructor(public userService: UsersService) {}
   ngOnInit() {
+    
     //muestro lo que está almacenado en la cookie de perfil
-    console.log(this.userService.getPerfil());
+    this.perfil=this.userService.getPerfil();
+    console.log(this.perfil);
     
   }
 }
