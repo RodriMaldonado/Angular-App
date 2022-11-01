@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit{
 
   constructor(private formBuilder:FormBuilder, private userService: UsersService,private router: Router) { 
     this.form=this.formBuilder.group({
-      email:["", [Validators.required, Validators.email]],
+      /* email:["", [Validators.required, Validators.email]], */
       password: ["", [Validators.required]]
     })
    }
@@ -38,14 +38,18 @@ export class IndexComponent implements OnInit{
   {
     if(this.form.valid)
     {
-      let email:string=this.form.get('email')?.value;
-      let password:string=this.form.get('password')?.value;
+      const user = { email:this.form.get('email')?.value,
+       password:this.form.get('password')?.value};
 
-      let login:Login= new Login(email,password)
-
-    this.userService.login(login).subscribe(data => {
-        //preguntar si tenemos el token para avanzar a dejar en una cookie de lo contrario mostrar mensaje de error en el usurio
-        this.userService.setToken(data.token);
+    this.userService.login(user).subscribe(data => {
+      if (data.token!='' ){
+        //seteamos las cookies con el valor del tocken y el perfil del usuario
+        this.userService.setToken(data.token, data.nivel);
+        this.router.navigateByUrl('layout1');
+      }else {
+        //mostrar por pantalla el mensaje de error
+        console.log("usuario o pass no valido");
+      }
         });
     
     this.router.navigateByUrl('layout1');

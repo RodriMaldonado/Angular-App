@@ -20,8 +20,9 @@ export class UsersService {
   }
 
 //
-  setToken(token: string) {
+  setToken(token: string, perfil: string) {
     this.cookies.set("token", token);
+    this.cookies.set("perfil", perfil)
   }
 
   getToken() {
