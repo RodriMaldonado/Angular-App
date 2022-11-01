@@ -18,13 +18,13 @@ export class IndexComponent {
   login()  {
     const user = {email: this.email, password: this.password};
     this.userService.login(user).subscribe(data => {
-        //preguntar si tenemos el token para avanzar a dejar en una cookie de lo contrario mostrar mensaje de error en el usurio
-        this.userService.setToken(data.token);
         //validamos el usuario si trea el nivel que devuelve la api
-        if (data.nivel==2 || data.nivel==9 ){
+        if (data.token!='' ){
+          //seteamos las cookies con el valor del tocken y el perfil del usuario
+          this.userService.setToken(data.token, data.nivel);
           this.router.navigateByUrl('layout1');
         }else {
-          //
+          //mostrar por pantalla el mensaje de error
           console.log("usuario o pass no valido");
         }
           

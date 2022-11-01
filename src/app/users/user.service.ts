@@ -19,9 +19,10 @@ export class UsersService {
   //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
   }
 
-  //guarda el token en la cookie del cliente
-  setToken(token: string) {
+  //guarda el token en una cookie y el perfil del cliente
+  setToken(token: string, perfil: string) {
     this.cookies.set("token", token);
+    this.cookies.set("perfil", perfil);
   }
   //devuelve la cookie almacenada en el cliente
   getToken() {
@@ -37,7 +38,7 @@ export class UsersService {
   getUserLogged() {
     const token = this.getToken();
     // Aquí iría el endpoint para devolver el usuario para un token
-    //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
+    //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/login.php");
     return token;
   }
 
