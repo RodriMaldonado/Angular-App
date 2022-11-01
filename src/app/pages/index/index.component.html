@@ -27,9 +27,9 @@
             </div>
           </div>
 
-          <!-- <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-danger">
+           <div *ngIf="email?.dirty || email?.touched" class="text-danger">
             <div *ngIf="email?.errors?.['required']">El usuario es requerido.</div>
-            </div> -->
+            </div> 
   
             <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
               <div *ngIf="password?.errors?.['required']">La contraseña es requerida.</div>

@@ -14,7 +14,7 @@ export class IndexComponent implements OnInit{
 
   constructor(private formBuilder:FormBuilder, private userService: UsersService,private router: Router) { 
     this.form=this.formBuilder.group({
-      /* email:["", [Validators.required, Validators.email]], */
+       email:["", [Validators.required]],
       password: ["", [Validators.required]]
     })
    }
