@@ -43,14 +43,16 @@ export class IndexComponent implements OnInit{
        password:this.form.get('password')?.value};
 
     this.userService.login(user).subscribe(data => {
-      if (data.nivel!='0' ){
-        //seteamos las cookies con el valor del tocken y el perfil del usuario
-        this.userService.setToken(data.token, data.nivel);
-        this.router.navigateByUrl('layout1');
-      }else {
-        //mostrar por pantalla el mensaje de error
-        this.errorLogin="Usuario o contraseña no válido";
-      }
+        //validamos el usuario si trea el nivel que devuelve la api
+        if (data.token!='' ){
+          //seteamos las cookies con el valor del tocken y el perfil del usuario
+          this.userService.setToken(data.token, data.nivel);
+          this.router.navigateByUrl('layout1');
+        }else {
+          //mostrar por pantalla el mensaje de error
+          console.log("usuario o pass no valido");
+        }
+          
         });
       }
     

@@ -8,13 +8,14 @@ import { UsersService } from 'src/app/users/user.service';
 })
 export class Layout1Component implements OnInit {
 
+  perfil!:string;
+
   constructor(public userService: UsersService) {}
   ngOnInit() {
-    this.getUserLogged();
-  }
-  getUserLogged() {
-    this.userService.getUser().subscribe(user => {
-      console.log(user);
-    });
+    
+    //muestro lo que está almacenado en la cookie de perfil
+    this.perfil=this.userService.getPerfil();
+    console.log(this.perfil);
+    
   }
 }

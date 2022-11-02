@@ -28,7 +28,10 @@ export class UsersService {
   getToken() {
     return this.cookies.get("token");
   }
-
+   //devuelve la cookie almacenada del perfil
+   getPerfil() {
+    return this.cookies.get("perfil");
+  }
   //devueleve el usuario
   getUser() {
     //return this.http.get("https://reqres.in/api/users/2");
