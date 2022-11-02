@@ -13,7 +13,7 @@ export class UsersService {
   //funciona con  la pagina de ejemplo
   //return this.http.post("https://reqres.in/api/login", user);
   
-  return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/index.php",user);
+  return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/login.php",user);
 
   //funciona con el get
   //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
