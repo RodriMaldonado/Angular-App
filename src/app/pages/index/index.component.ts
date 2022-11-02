@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class IndexComponent {
   email!:string;
   password!:string;
-  errorlogin:string;
+  errorlogin!:string;
   constructor(public userService: UsersService,public router: Router) { 
     
   }
