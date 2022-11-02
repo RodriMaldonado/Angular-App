@@ -49,7 +49,7 @@ export class IndexComponent implements OnInit{
         this.router.navigateByUrl('layout1');
       }else {
         //mostrar por pantalla el mensaje de error
-        this.errorLogin="Usuario o contraseña no válido";
+        this.errorLogin="Usuario o contraseña inválido";
       }
         });
       }
