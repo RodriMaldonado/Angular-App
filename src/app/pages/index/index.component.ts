@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Login } from 'src/app/model/login';
+
 
 @Component({
   selector: 'app-index',
@@ -12,7 +12,7 @@ import { Login } from 'src/app/model/login';
 export class IndexComponent implements OnInit{
   form:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private userService: UsersService,private router: Router) { 
+  constructor(public formBuilder:FormBuilder, public userService: UsersService,public router: Router) { 
     this.form=this.formBuilder.group({
        email:["", [Validators.required]],
       password: ["", [Validators.required]]
@@ -51,8 +51,6 @@ export class IndexComponent implements OnInit{
         console.log("usuario o pass no valido");
       }
         });
-    
-    this.router.navigateByUrl('layout1');
       }
     
 }
