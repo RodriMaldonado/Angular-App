@@ -19,10 +19,10 @@ export class UsersService {
   //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
   }
 
-  //guarda el token en una cookie y el perfil del cliente
+//
   setToken(token: string, perfil: string) {
     this.cookies.set("token", token);
-    this.cookies.set("perfil", perfil);
+    this.cookies.set("perfil", perfil)
   }
   //devuelve la cookie almacenada en el cliente
   getToken() {
