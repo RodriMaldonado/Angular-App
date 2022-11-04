@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users/user.service';
-import { MenuService } from 'src/app/menu/menu.service';
+import { MenuService } from 'src/app/pages/menu/menu.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-layout1',
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./layout1.component.css']
 })
 export class Layout1Component implements OnInit {
-
+  nroCliente!:number;
   perfil!:string;
     
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router) {}

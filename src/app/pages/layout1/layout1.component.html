@@ -39,7 +39,7 @@
 
 <div class="container py-5">
 <form class="d-flex justify-content-center" role="search">
-    <input class="form-control number fw-bold"   id="input" type="number" min="1" pattern="^[0-9]+" required placeholder="Nº Cliente SIGA" aria-label="Search">
+    <input class="form-control number fw-bold" [(ngModel)]="nroCliente" name="nroCliente"  id="input" type="number" min="1" pattern="^[0-9]+" required placeholder="Nº Cliente SIGA" aria-label="Search">
 </form>
 </div>
 
