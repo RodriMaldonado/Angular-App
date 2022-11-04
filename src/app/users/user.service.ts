@@ -20,9 +20,10 @@ export class UsersService {
   }
 
 //
-  setToken(token: string, perfil: string) {
+  setToken(token: string, perfil: string, usuario: string) {
     this.cookies.set("token", token);
     this.cookies.set("perfil", perfil)
+    this.cookies.set("usuario", usuario)
   }
   //devuelve la cookie almacenada en el cliente
   getToken() {
@@ -31,6 +32,10 @@ export class UsersService {
    //devuelve la cookie almacenada del perfil
    getPerfil() {
     return this.cookies.get("perfil");
+  }
+   //devuelve la cookie almacenada el usuario
+   getUsuario() {
+    return this.cookies.get("usuario");
   }
   //devueleve el usuario
   getUser() {

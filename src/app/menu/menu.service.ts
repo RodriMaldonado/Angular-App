@@ -9,9 +9,9 @@ import { CookieService } from "ngx-cookie-service";
 export class MenuService {
   constructor(private http: HttpClient, private cookies: CookieService) {}
 
-  consultarDatosCliente(nroCliente: number){
+  consultarDatosCliente(nroCliente: number):Observable<any>{
     //buscamos la información del cliente que recibimos por parámetro en la api
-    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/menu.php");
+    return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/menu.php", nroCliente);
 
   }
 }
