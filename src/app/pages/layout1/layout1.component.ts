@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class Layout1Component implements OnInit {
   nroCliente!:number;
-  perfil!:string;
-    
+  perfil!:string; 
+  mensajeCliente!:string;
+
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router) {}
   
   ngOnInit() {
@@ -22,15 +23,18 @@ export class Layout1Component implements OnInit {
   }
   
   consultarCliente(){
-    
+    console.log(this.nroCliente);
 
-
-    //console.log(this.nroCliente);
-    //this.menuService.consultarDatosCliente(nroCliente);
-
-    //if (data.ContractNumber!='0' ){
-      //si la consulta de cliente trae datos vamos al componente consultas a mostrar todos los datos del cliente 
-      //this.router.navigateByUrl('consultas');
-      //}
+    this.menuService.consultarDatosCliente(this.nroCliente).subscribe( data => {
+      console.log(data);
+       /*if (data.ContractNumber!='0' ){
+        //seteamos las cookies con el valor del tocken y el perfil del usuario
+        
+        this.router.navigateByUrl('consultas');
+      }else {
+        //mostrar por pantalla el mensaje de error
+        this.mensajeCliente="Cliente no encontrado";
+      }*/
+    });
   }
 }
