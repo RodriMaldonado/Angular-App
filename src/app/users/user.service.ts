@@ -20,24 +20,33 @@ export class UsersService {
   }
 
 //
-  setToken(token: string, perfil: string) {
+  setToken(token: string, perfil: string, usuario: string) {
     this.cookies.set("token", token);
     this.cookies.set("perfil", perfil)
+    this.cookies.set("usuario", usuario)
   }
-
+  //devuelve la cookie almacenada en el cliente
   getToken() {
     return this.cookies.get("token");
   }
-
+   //devuelve la cookie almacenada del perfil
+   getPerfil() {
+    return this.cookies.get("perfil");
+  }
+   //devuelve la cookie almacenada el usuario
+   getUsuario() {
+    return this.cookies.get("usuario");
+  }
+  //devueleve el usuario
   getUser() {
     //return this.http.get("https://reqres.in/api/users/2");
-    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
+    return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/login.php");
   }
 //busqueda de usaurio loggeado
   getUserLogged() {
     const token = this.getToken();
     // Aquí iría el endpoint para devolver el usuario para un token
-    //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/index.php");
+    //return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/login.php");
     return token;
   }
 

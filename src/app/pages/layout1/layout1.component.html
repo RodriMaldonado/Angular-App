@@ -17,8 +17,15 @@
             <div class="col-sm-4">
                 <p id="gestion" class="text fw-bold my-5">Gestión de clientes IPTEL Play
                 </p>
+                <br>
+                <p> Usuario: {{usuario}}</p>
+                <p> Perfil: {{perfil}}</p>
+                <p> Consulta: {{mensajeCliente}}</p>
             </div>
 
+            
+            
+            
             <div class="col-sm-3">
                 <button  routerLink="/index" type="button" class="btn btn-dark btn-circle mt-5 mx-4">
                     <span class="material-symbols-outlined">
@@ -35,7 +42,7 @@
 
 <div class="container py-5">
 <form class="d-flex justify-content-center" role="search">
-    <input class="form-control number fw-bold" id="input" type="number" min="1" pattern="^[0-9]+" required placeholder="Nº Cliente SIGA" aria-label="Search">
+    <input class="form-control number fw-bold"   [(ngModel)]="nroCliente" name="nroCliente" id="input" type="number" min="1" pattern="^[0-9]+" required placeholder="Nº Cliente SIGA" aria-label="Search">
 </form>
 </div>
 
@@ -47,7 +54,7 @@
 <div class="col">
 
     <div class="row">
-        <button id="btns" class="btn my-2 btn-lg" ><abbr title="Consulta los datos del cliente en SIGA y Rocstar."> Consultar datos</abbr></button>
+        <button id="btns" class="btn my-2 btn-lg" (click)="consultarCliente()" ><abbr title="Consulta los datos del cliente en SIGA y Rocstar."> Consultar datos</abbr></button>
     </div>
     
     <div class="row">
