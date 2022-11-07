@@ -45,7 +45,7 @@ export class IndexComponent implements OnInit{
     this.userService.login(user).subscribe(data => {
       if (data.nivel!='0' ){
         //seteamos las cookies con el valor del tocken y el perfil del usuario
-        this.userService.setToken(data.token, data.nivel);
+        this.userService.setToken(data.token, data.nivel, this.form.get('email')?.value);
         this.router.navigateByUrl('layout1');
       }else {
         //mostrar por pantalla el mensaje de error

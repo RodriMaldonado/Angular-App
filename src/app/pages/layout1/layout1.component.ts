@@ -2,39 +2,55 @@ import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/users/user.service';
 import { MenuService } from 'src/app/pages/menu/menu.service';
 import { Router } from '@angular/router';
+import { CookieService } from "ngx-cookie-service";
+
 @Component({
   selector: 'app-layout1',
   templateUrl: './layout1.component.html',
   styleUrls: ['./layout1.component.css']
 })
 export class Layout1Component implements OnInit {
-  nroCliente!:number;
-  perfil!:string; 
+
+  perfil!:string; //perfil login
+  usuario!:string;//usuario login
+  nroCliente!:number;  
   mensajeCliente!:string;
 
-  constructor(public userService: UsersService, public menuService: MenuService, public router: Router) {}
+  constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
   ngOnInit() {
     
     //muestro lo que está almacenado en la cookie de perfil
     this.perfil=this.userService.getPerfil();
+    this.usuario=this.userService.getUsuario();
     console.log(this.perfil);
     
   }
   
+  //borramos las cookis al salir
+    ngOnDestroy() {
+      this.cookies.delete("perfil");
+      this.cookies.delete("usuario");
+      this.cookies.delete("token");
+    }
+  
+
   consultarCliente(){
     console.log(this.nroCliente);
 
     this.menuService.consultarDatosCliente(this.nroCliente).subscribe( data => {
       console.log(data);
-       /*if (data.ContractNumber!='0' ){
-        //seteamos las cookies con el valor del tocken y el perfil del usuario
-        
-        this.router.navigateByUrl('consultas');
+      console.log(data.datosCliente.Contact.Email);
+      if (data.datosCliente.ActivationCode!=0 ){
+        //vamos al componente consultas a mostrar los datos 
+        //this.router.navigateByUrl('consultas'); ///no funciona aún
+        this.mensajeCliente=data.datosCliente.Contact.Email;
       }else {
         //mostrar por pantalla el mensaje de error
         this.mensajeCliente="Cliente no encontrado";
-      }*/
+      }
     });
   }
+
+  
 }
