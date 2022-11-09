@@ -11,7 +11,9 @@ export class MenuService {
 
   consultarDatosCliente(nroCliente: number):Observable<any>{
     //buscamos la información del cliente que recibimos por parámetro en la api
-    return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/menu.php", nroCliente);
+    //return this.http.post("https://consultas.iptel.com.ar/api_iptelplay/menu.php", nroCliente);
+    const url = "https://consultas.iptel.com.ar/api_iptelplay/consultar.php?nroCliente=" + nroCliente;
+    return this.http.get(url);
 
   }
 }

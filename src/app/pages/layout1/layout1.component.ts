@@ -16,7 +16,8 @@ export class Layout1Component implements OnInit {
   nroCliente!:number;  
   mensajeCliente!:string;
   
-
+  listaDatosCliente!:string[];
+  listaSuscripciones!:string[];
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
   ngOnInit() {
@@ -28,7 +29,7 @@ export class Layout1Component implements OnInit {
     
   }
   
-  //borramos las cookis al salir
+  //borramos las cookies al
     ngOnDestroy() {
       this.cookies.delete("perfil");
       this.cookies.delete("usuario");
@@ -41,12 +42,26 @@ export class Layout1Component implements OnInit {
    
     this.menuService.consultarDatosCliente(this.nroCliente).subscribe( data => {
       console.log(data);
-      console.log(data.datosCliente.Contact.Email);
+      console.log(data.datosCliente.Email);
       if (data.datosCliente.ActivationCode!=0 ){
+        //if (data.status==200 ){
         //vamos al componente consultas a mostrar los datos 
         //this.router.navigateByUrl('consultas'); ///no funciona aún
-        this.mensajeCliente=data.datosCliente.Contact.Email;
         
+        this.listaDatosCliente=[data.datosCliente.ActivationCode
+          ,data.datosCliente.Email
+          ,data.datosCliente.Nombre
+          ,data.datosCliente.Apellido
+          ,data.datosCliente.Estado
+          ,data.datosCliente.Ref
+          ,data.datosCliente.IdRocstar
+          ,data.datosCliente.IdUserRocstar
+          ,data.datosCliente.login
+          ,data.datosCliente.tenantId
+          ,data.datosCliente.modificadoPor];
+        
+          this.listaSuscripciones=[data.datosCliente.suscripciones];
+
       }else {
         //mostrar por pantalla el mensaje de error
         this.mensajeCliente="Cliente no encontrado";

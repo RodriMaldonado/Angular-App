@@ -20,7 +20,23 @@
                 <br>
                 <p> Usuario: {{usuario}}</p>
                 <p> Perfil: {{perfil}}</p>
-                <p> Consulta: {{mensajeCliente}}</p>
+                <p> Consulta de datos del cliente: {{mensajeCliente}}</p>
+                <table>
+                    <tr *ngFor="let item of listaDatosCliente">
+                      <td>
+                              {{item}}
+                    </td>
+                      </tr>
+                  </table>
+                  <p> SUSCRIPCIONES:
+                  <table>
+                    <tr *ngFor="let itemSuscripciones of listaSuscripciones">
+                      <td>
+                              {{itemSuscripciones}}
+                    </td>
+                      </tr>
+                  </table>
+                
             </div>
 
             
