@@ -15,7 +15,7 @@ export class Layout1Component implements OnInit {
   usuario!:string;//usuario login
   nroCliente!:number;  
   mensajeCliente!:string;
-  contacts:any;
+  
 
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
@@ -46,9 +46,7 @@ export class Layout1Component implements OnInit {
         //vamos al componente consultas a mostrar los datos 
         //this.router.navigateByUrl('consultas'); ///no funciona aún
         this.mensajeCliente=data.datosCliente.Contact.Email;
-        this.userService.getContacts().subscribe(data => {
-          this.contacts=data;
-        });
+        
       }else {
         //mostrar por pantalla el mensaje de error
         this.mensajeCliente="Cliente no encontrado";

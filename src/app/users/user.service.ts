@@ -43,9 +43,6 @@ export class UsersService {
     return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/login.php");
   }
 
-  getContacts (): Observable<any> {
-   return this.http.get("https://consultas.iptel.com.ar/api_iptelplay/menu.php")
-  }
 //busqueda de usaurio loggeado
   getUserLogged() {
     const token = this.getToken();
