@@ -16,8 +16,8 @@ export class Layout1Component implements OnInit {
   nroCliente!:number;  
   mensajeCliente!:string;
   
-  listaDatosCliente!:string[];
-  listaSuscripciones!:string[];
+  @Input() listaDatosCliente!:string[];
+  @Input() listaSuscripciones!:string[];
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
   ngOnInit() {
@@ -46,7 +46,7 @@ export class Layout1Component implements OnInit {
       if (data.datosCliente.ActivationCode!=0 ){
         //if (data.status==200 ){
         //vamos al componente consultas a mostrar los datos 
-        //this.router.navigateByUrl('consultas'); ///no funciona aún
+        this.router.navigateByUrl('consultadatos'); ///no funciona aún
         
         this.listaDatosCliente=[data.datosCliente.ActivationCode
           ,data.datosCliente.Email
