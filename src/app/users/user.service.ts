@@ -25,6 +25,14 @@ export class UsersService {
     this.cookies.set("perfil", perfil)
     this.cookies.set("usuario", usuario)
   }
+//seteamos en la cookie el nro de cliente
+  setNroCliente(nroCliente: any) {
+    this.cookies.set("nroCliente", nroCliente);
+  }
+ //devuelve la cookie almacenada en el cliente
+ getNroCliente(): string {
+  return this.cookies.get("nroCliente");
+}
   //devuelve la cookie almacenada en el cliente
   getToken() {
     return this.cookies.get("token");

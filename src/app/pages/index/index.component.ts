@@ -33,8 +33,6 @@ export class IndexComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  
-
   login()  
   {
     if(this.form.valid)
