@@ -15,7 +15,19 @@ export class Layout1Component implements OnInit {
   usuario!:string;//usuario login
   nroCliente!:number;  
   mensajeCliente!:string;
-  
+
+  numerocliente!:number;
+  emailCliente!:string;
+  nombreCliente!:string;
+  apellidoCliente!:string;
+  estadoCliente!:string;
+  refCliente!:any;
+  rocstarId!:number;
+  userIdRocstar!:any;
+  loginCliente!:any;
+  idTenant!:any;
+  modificado!:any;
+
   @Input() listaDatosCliente!:string[];
   @Input() listaSuscripciones!:string[];
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
@@ -46,21 +58,21 @@ export class Layout1Component implements OnInit {
       if (data.datosCliente.ActivationCode!=0 ){
         //if (data.status==200 ){
         //vamos al componente consultas a mostrar los datos 
-        this.router.navigateByUrl('consultadatos'); ///no funciona aún
+       /*  this.router.navigateByUrl('consultadatos') */; ///no funciona aún
+       this.numerocliente=data.datosCliente.ActivationCode;
+       this.emailCliente=data.datosCliente.Email;
+       this.nombreCliente=data.datosCliente.Nombre;
+       this.apellidoCliente=data.datosCliente.Apellido;
+       this.estadoCliente=data.datosCliente.Estado;
+       this.refCliente=data.datosCliente.Ref;
+       this.rocstarId=data.datosCliente.IdRocstar;
+       this.userIdRocstar=data.datosCliente.IdUserRocstar;
+       this.loginCliente=data.datosCliente.login;
+       this.idTenant=data.datosCliente.tenantId;
+       this.modificado=data.datosCliente.modificadoPor;
+       
         
-        this.listaDatosCliente=[data.datosCliente.ActivationCode
-          ,data.datosCliente.Email
-          ,data.datosCliente.Nombre
-          ,data.datosCliente.Apellido
-          ,data.datosCliente.Estado
-          ,data.datosCliente.Ref
-          ,data.datosCliente.IdRocstar
-          ,data.datosCliente.IdUserRocstar
-          ,data.datosCliente.login
-          ,data.datosCliente.tenantId
-          ,data.datosCliente.modificadoPor];
-        
-          this.listaSuscripciones=[data.datosCliente.suscripciones];
+        this.listaSuscripciones=[data.datosCliente.suscripciones];
 
       }else {
         //mostrar por pantalla el mensaje de error

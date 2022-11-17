@@ -18,26 +18,12 @@
                 <p id="gestion" class="text fw-bold my-5">Gestión de clientes IPTEL Play
                 </p>
                 <br>
-                <p> Usuario: {{usuario}}</p>
-                <p> Perfil: {{perfil}}</p>
-                <p> Consulta de datos del cliente: {{mensajeCliente}}</p>
-                <table>
-                    <tr *ngFor="let item of listaDatosCliente">
-                      <td>
-                              {{item}}
-                    </td>
-                      </tr>
-                  </table>
-                  <p> SUSCRIPCIONES:
-                  <table>
-                    <tr *ngFor="let itemSuscripciones of listaSuscripciones">
-                      <td>
-                              {{itemSuscripciones}}
-                    </td>
-                      </tr>
-                  </table>
-                
+                <p> <strong> Usuario: {{usuario}}</strong></p>
+                <p> <strong> Perfil: {{perfil}} </strong></p>
             </div>
+
+                
+            
 
             
             
@@ -99,6 +85,48 @@
 
 </div>
 </div>
+
+<br>
+<br>
+
+<strong> Consulta de datos del cliente: {{mensajeCliente}}</strong>
+    <div class="table-responsive">
+                <table class="table table-sm table-bordered">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Nro cliente:</th>
+                        <th>Email:</th>
+                        <th>Nombre:</th>
+                        <th>Apellido:</th>
+                        <th>Estado:</th>
+                        <th>Ref:</th>
+                        <th>ID Rocstar:</th>
+                        <th>ID user Rocstar:</th>
+                        <th>Login:</th>
+                        <th>Tenant Id:</th>
+                        <th>Modificado por:</th>
+                        <th>Suscripciones:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td> <strong>{{numerocliente}}</strong></td>
+                    <td><strong>{{emailCliente}}</strong></td>
+                    <td><strong>{{nombreCliente}}</strong></td>
+                    <td><strong>{{apellidoCliente}}</strong></td>
+                    <td><strong>{{estadoCliente}}</strong></td>
+                    <td><strong>{{refCliente}}</strong></td>
+                    <td><strong>{{rocstarId}}</strong></td>
+                    <td><strong>{{userIdRocstar}}</strong></td>
+                    <td><strong>{{loginCliente}}</strong></td>
+                    <td><strong>{{idTenant}}</strong></td>
+                    <td><strong>{{modificado}}</strong></td>
+                    <td *ngFor="let itemSuscripciones of listaSuscripciones"><strong>{{itemSuscripciones}}</strong></td>
+                    
+                </tbody>
+               
+                  </table>
+                
+                </div>            
 
 </main>
 
