@@ -29,6 +29,8 @@ export class Layout1Component implements OnInit {
   idTenant!:any;
   modificado!:any;
 
+  sucursal1!:string;
+
   @Input() listaDatosCliente!:string[];
   @Input() listaSuscripciones!:string[];
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
@@ -81,6 +83,18 @@ export class Layout1Component implements OnInit {
       }
     });
   }
-
+  //nr 20230124 obtenemos las sucursales de la api
+  obtenerSucursales(){
+    this.menuService.obtenerSucursalesSiga().subscribe(data=>{
+      //obtenemos todos los datos del json que trae la api
+      //console.log(data);
+      //obtenesmos todos los datos de la entrada del json que tiene las sucursales
+      //console.log(data.datosSucursales);
+      //obtenemos los valores de la entrada del json de datosSucursales del indice 1
+      console.log(data.datosSucursales.Sucursal[1]);
+      //obtenemos los valores de la entrada del json de datosSucursales del indice 1 nombre del subindice
+      this.sucursal1=data.datosSucursales.Sucursal[1].Nombre
+    })
+  }
   
 }

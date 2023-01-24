@@ -16,4 +16,13 @@ export class MenuService {
     return this.http.get(url);
 
   }
+
+  obtenerSucursalesSiga():Observable<any>{
+    //obtenemos las sucursales de SIGA
+    
+    const url = "https://consultas.iptel.com.ar/api_iptelplay/obtenersucursales.php";
+    return this.http.get(url);
+
+  }
+
 }
