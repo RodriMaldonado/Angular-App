@@ -33,6 +33,8 @@ export class Layout1Component implements OnInit {
 
   @Input() listaDatosCliente!:string[];
   @Input() listaSuscripciones!:string[];
+  listaSucursales!:any[]; //nr20230124 tuve que definir de esta manera la variable para que tome los nombres internos del json
+  
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
   ngOnInit() {
@@ -91,10 +93,22 @@ export class Layout1Component implements OnInit {
       //obtenesmos todos los datos de la entrada del json que tiene las sucursales
       //console.log(data.datosSucursales);
       //obtenemos los valores de la entrada del json de datosSucursales del indice 1
-      console.log(data.datosSucursales.Sucursal[1]);
+      //console.log(data.datosSucursales.Sucursal[1]);
       //obtenemos los valores de la entrada del json de datosSucursales del indice 1 nombre del subindice
       this.sucursal1=data.datosSucursales.Sucursal[1].Nombre
+      this.listaSucursales=data.datosSucursales.Sucursal;
+      var length = this.listaSucursales.length ;
+      var i:number;
+            
+      for (i = 1; i < length; i++) {
+        console.log(data.datosSucursales.Sucursal[i]);
+        //this.listaSucursales=data.datosSucursales.Sucursal[i].Nombre;
+        //console.log(this.listaSucursales);
+        
+      };
     })
   }
+
+  
   
 }

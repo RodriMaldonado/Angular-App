@@ -89,7 +89,15 @@
     <div>
         Nombre de Sucursal:{{sucursal1}}
     </div>
-
+     <!-- <li *ngFor="let item of listaSucursales; index as i">{{item[i]}}</li> 
+    -->
+    <select name="sucursal" ngModel>
+        <option value="" disabled>Seleccione una localidad</option>
+        <option *ngFor="let sucursal of listaSucursales" [ngValue]="sucursal.Id">
+          {{ sucursal.Nombre}}
+        </option>
+      </select>
+      
 </div>
 </div>
 
