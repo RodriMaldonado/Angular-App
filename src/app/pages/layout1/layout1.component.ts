@@ -96,16 +96,16 @@ export class Layout1Component implements OnInit {
       //console.log(data.datosSucursales.Sucursal[1]);
       //obtenemos los valores de la entrada del json de datosSucursales del indice 1 nombre del subindice
       this.sucursal1=data.datosSucursales.Sucursal[1].Nombre
+      //asignamos el listado de sucursales a la variable listasucursales
+      //para luego asiganarla al list en el html
       this.listaSucursales=data.datosSucursales.Sucursal;
-      var length = this.listaSucursales.length ;
-      var i:number;
-            
-      for (i = 1; i < length; i++) {
-        console.log(data.datosSucursales.Sucursal[i]);
-        //this.listaSucursales=data.datosSucursales.Sucursal[i].Nombre;
-        //console.log(this.listaSucursales);
-        
-      };
+      ////////logica para recorrer los datos de la variable listasucursales
+      // var length = this.listaSucursales.length ;
+      // var i:number;
+      // for (i = 1; i < length; i++) {
+      //   console.log(data.datosSucursales.Sucursal[i]);     
+      // };
+      /////////////////
     })
   }
 
