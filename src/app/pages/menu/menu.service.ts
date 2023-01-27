@@ -25,4 +25,12 @@ export class MenuService {
 
   }
 
+  obtenerCallesSiga(idSucursal:number):Observable<any>{
+    //obtenemos lascalles de  SIGA de acuerdo a un id de sucursal
+    
+    const url = "https://consultas.iptel.com.ar/api_iptelplay/obtenercalles.php?idSucursal="+idSucursal;
+    return this.http.get(url);
+
+  }
+
 }

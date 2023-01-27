@@ -30,10 +30,13 @@ export class Layout1Component implements OnInit {
   modificado!:any;
 
   sucursal1!:string;
+  calle1!:string;
+  idSucursal!:number; //nr20230126
 
   @Input() listaDatosCliente!:string[];
   @Input() listaSuscripciones!:string[];
   listaSucursales!:any[]; //nr20230124 tuve que definir de esta manera la variable para que tome los nombres internos del json
+  listaCalles!:any[];//20230127
   
   constructor(public userService: UsersService, public menuService: MenuService, public router: Router, private cookies: CookieService) {}
   
@@ -100,15 +103,29 @@ export class Layout1Component implements OnInit {
       //para luego asiganarla al list en el html
       this.listaSucursales=data.datosSucursales.Sucursal;
       ////////logica para recorrer los datos de la variable listasucursales
-      // var length = this.listaSucursales.length ;
-      // var i:number;
-      // for (i = 1; i < length; i++) {
-      //   console.log(data.datosSucursales.Sucursal[i]);     
-      // };
+     var length = this.listaSucursales.length ;
+     var i:number;
+   for (i = 1; i < length; i++) {
+       console.log(data.datosSucursales.Sucursal[i]);     
+     };
       /////////////////
     })
   }
-
+//nr20230126
+obtenerCalles(idSucursal:number){
+  this.menuService.obtenerCallesSiga(idSucursal).subscribe(data=>{
+    //obtenemos todos los datos del json que trae la api
+    //console.log(data);
+    //obtenesmos todos los datos de la entrada del json que tiene las sucursales
+    console.log(data.calles);
+    //obtenemos los valores de la entrada del json de datosSucursales del indice 1
+    //console.log(data.calles[1].Id);
+    //obtenemos los valores de la entrada del json de datosSucursales del indice 1 nombre del subindice
+   this.calle1=data.calles.Calle[1].Nombre;
+   //asigno a la variable listaCalles todas las calles obtenidas de la funcion menuService.obtenerCallesSiga()
+   this.listaCalles=data.calles.Calle; 
+  })
+}
   
   
 }

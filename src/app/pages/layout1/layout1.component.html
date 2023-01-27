@@ -98,6 +98,19 @@
         </option>
       </select>
       
+      <div class="row">
+        <button id="btns" class="btn my-2 btn-lg" (click)="obtenerCalles(3)" ><abbr title="Sucursales SIGA">Obtener calles</abbr></button>
+    </div>
+    <div>
+        Nombre de calle:{{calle1}}
+    </div>
+    <select name="calles" ngModel>
+        <option value="" disabled>Seleccione una localidad</option>
+        <option *ngFor="let calle of listaCalles" [ngValue]="calle.Id">
+          {{ calle.Nombre}}
+        </option>
+      </select>
+      
 </div>
 </div>
 
